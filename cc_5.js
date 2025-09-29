@@ -14,7 +14,22 @@ function calculateBasePay (hourlyRate, hoursWorked) {
 }
 
 console.log("Testing calculateBasePay");
-console.log("Test 1: (under 40 hours):", calculateBasePay(22, 30));
-console.log("Test 2: (over 40 hours):", calculateBasePay(25, 50));
+console.log("Test 1 (under 40 hours):", calculateBasePay(22, 30));
+console.log("Test 2 (over 40 hours):", calculateBasePay(25, 50));
+console.log("\n");
+
+// Step. 4: Writing a function of calculateOvertimePay
+function calculateOvertimePay(hourlyRate, hoursWorked) {
+    if (hoursWorked > 40) {
+        const overtimeHours = hoursWorked - 40;
+        const overtimeRate = hourlyRate * 1.5;
+        return overtimeHours * overtimeRate;
+    }
+    return 0;
+}
+
+console.log("Testing calculateOvertimePay")
+console.log("Test 1 (no overtime):", calculateOvertimePay(22, 32));
+console.log("Test 2 (with overtime):", calculateOvertimePay(22, 42));
 console.log("\n");
 
