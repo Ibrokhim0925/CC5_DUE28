@@ -33,3 +33,19 @@ console.log("Test 1 (no overtime):", calculateOvertimePay(22, 32));
 console.log("Test 2 (with overtime):", calculateOvertimePay(22, 42));
 console.log("\n");
 
+// Step 5: Writing and testing the calculateTaxes function
+function calculateTaxes(grossPay) {
+    const taxRate = .15;
+    return grossPay * taxRate;
+}
+
+function calculatePayAfterTaxes(grossPay) {
+    const taxAmount = calculateTaxes(grossPay);
+    const netPay = grossPay - taxAmount;
+    return netPay;
+}
+
+console.log("Testing calculateTaxes and calculatePayAfterTaxes")
+console.log("Test 1 (net pay for $3000):", calculatePayAfterTaxes(3000));
+console.log("\n");
+
