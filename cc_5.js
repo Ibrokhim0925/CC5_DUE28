@@ -3,7 +3,7 @@ const employees = [
     { name: "Alice", hourlyRate: 25, hoursWorked: 38 },
     { name: "Bob", hourlyRate: 30, hoursWorked: 45 },
     { name: "Charlie", hourlyRate: 20, hoursWorked: 50 },
-    { name: "Diana", hourlyRate: 45, hoursWorked: 40 }
+    { name: "Kenan", hourlyRate: 45, hoursWorked: 42 }
 ];
 
 
@@ -47,5 +47,27 @@ function calculatePayAfterTaxes(grossPay) {
 
 console.log("Testing calculateTaxes and calculatePayAfterTaxes")
 console.log("Test 1 (net pay for $3000):", calculatePayAfterTaxes(3000));
+console.log("\n");
+
+// Step 6: Writing and testing the processPayroll function
+function processPayroll(employee) {
+    const basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+    const overtimePay = calculateOvertimePay(employee.hourlyRate, employee.hoursWorked);
+    const grossPay = basePay + overtimePay;
+    const taxes = calculateTaxes(grossPay);
+    const netPay = grossPay - taxes;
+
+    return {
+        name: employee.name,
+        basePay: basePay,
+        overtimePay: overtimePay,
+        grossPay: grossPay,
+        netPay: netPay
+    };
+}
+
+console.log("Testing processPayroll (with Kenan's data)");
+const KenanPayroll = processPayroll(employees[3]);
+console.log(KenanPayroll)
 console.log("\n");
 
